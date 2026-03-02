@@ -17,9 +17,8 @@ return new class extends Migration
             $table->string('image');
             $table->string('slug');
             $table->string('name');
-            $table->string('annotation');
+            $table->text('annotation');
             $table->longText('text');
-            $table->integer('rating');
             $table->foreignIdFor(Chapter::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
             $table->tinyInteger('active');
             $table->timestamps();

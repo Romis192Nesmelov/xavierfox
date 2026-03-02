@@ -13,9 +13,8 @@ class ContactsSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            ['icon' => 'email.svg', 'address' => 'mailto:contact@xavierfox.tech', 'active' => 1],
-            ['icon' => 'github.svg', 'address' => 'github.com/xavierfox', 'active' => 1],
-            ['icon' => 'telegram.svg', 'address' => 'https://t.me/@intomadNES', 'active' => 1],
+            ['icon' => 'email.svg', 'address' => 'mailto:info@xavierfox.tech', 'active' => 1],
+            ['icon' => 'telegram.svg', 'address' => 'https://t.me/intomadNES', 'active' => 1],
         ];
 
         foreach ($data as $item) {

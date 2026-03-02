@@ -20,17 +20,16 @@ class Article extends Model
         'name',
         'annotation',
         'text',
-        'rating',
         'active',
-        'chapter_id'
+        'chapter_id',
     ];
 
     public function sluggable(): array
     {
         return [
             'slug' => [
-                'source' => 'name'
-            ]
+                'source' => 'name',
+            ],
         ];
     }
 

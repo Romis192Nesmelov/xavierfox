@@ -1,67 +1,36 @@
 <x-app-layout>
-    <x-slot name="vite_files">
-        @vite(['resources/css/style.css', 'resources/css/category.css'])
-    </x-slot>
-    @include('partials.slots')
+    @include('partials.slots', ['chapter' => $chapter])
     <main>
         <!-- Category Header -->
-        <section class="category-header">
+        <section class="category-header" aria-labelledby="category-title">
             <div class="container">
-                <!-- Breadcrumbs -->
-                <nav class="breadcrumbs" aria-label="Хлебные крошки">
-                    <ol>
-                        <li><a href="{{ route('home') }}">Главная</a></li>
-                        <li aria-current="page">{{ $chapter ? $chapter->name : 'Все статьи' }}</li>
-                    </ol>
-                </nav>
-
-                <div class="category-info">
-                    <div class="category-icon-large">
-                        <img width="50%" src="{{ asset('storage/images/icons/'.($chapter ? $chapter->icon : 'all.svg')) }}" />
-                    </div>
-                    <div class="category-text">
-                        <h1 class="category-title">{{ $chapter ? $chapter->name : 'Все статьи' }}</h1>
-                        @if ($chapter)
-                            <p class="category-description">{{ $chapter->description }}</p>
-                        @endif
-                        <div class="category-stats">
-                            <span class="stat"><strong>{{ $articles_count }}</strong> {{ articlesDeclension($articles_count) }}</span>
-                        </div>
-                    </div>
+                <div class="category-header-content">
+                    <h1 id="category-title" class="category-title">{{ $chapter->name }}</h1>
+                    <p class="category-description">{{ $chapter->description }}</p>
                 </div>
             </div>
         </section>
 
-        <!-- Articles List -->
-        <section class="articles-list">
+        <!-- Articles Grid -->
+        <section class="articles-section" aria-labelledby="articles-title">
             <div class="container">
-                <h2 class="section-title">Все статьи раздела</h2>
-
+                <h2 id="articles-title" class="section-title visually-hidden">Статьи категории</h2>
                 <div class="articles-grid">
-
                     @foreach($articles as $article)
-                        <article class="article-item">
-                            <div class="article-image">
-                                <img src="{{ asset('storage/images/articles/'.$article->image) }}" alt="{{ $article->name }}" loading="lazy">
-                            </div>
-                            <div class="article-body">
-{{--                                <div class="article-tags">--}}
-{{--                                    <span class="tag-small">Настройка</span>--}}
-{{--                                    <span class="tag-small">Wi-Fi 6</span>--}}
-{{--                                </div>--}}
-                                <h3 class="article-title">{{ $article->name }}</h3>
-                                <p class="article-excerpt">{{ $article->annotation }}</p>
-                                <div class="article-footer">
-                                    <div class="article-meta">
-                                        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg> {{ $article->rating }}</span>
-                                    </div>
-                                    <a href="{{ route('article',['slug' => $article->chapter->slug, 'subSlug' => $article->slug]) }}" class="btn-primary">Читать статью</a>
+                        <article class="article-card is-visible" style="opacity: 0; transform: translateY(20px); transition: opacity 0.4s, transform 0.4s;">
+                            <a href="{{ route('article', ['slug' => $article->chapter->slug, 'subSlug' => $article->slug]) }}" class="article-card-link">
+                                <div class="article-card-preview">
+                                    <img src="{{ asset('storage/images/articles/'.$article->image) }}" />
                                 </div>
-                            </div>
+                                <div class="article-card-content">
+                                    <h3 class="article-card-title">{{ $article->name }}</h3>
+                                    <p class="article-card-excerpt">{{ $article->annotation }}</p>
+                                </div>
+                            </a>
                         </article>
                     @endforeach
-                    {{ $articles->render() }}
                 </div>
+                {{ $articles->render() }}
             </div>
         </section>
     </main>

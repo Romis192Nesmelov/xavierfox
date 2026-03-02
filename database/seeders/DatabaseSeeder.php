@@ -13,7 +13,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(ChaptersSeeder::class);
-        \App\Models\Article::factory(30)->create();
+//        \App\Models\Article::factory(30)->create();
+        $this->call(ArticlesSeeder::class);
         $this->call(ContentSeeder::class);
         $this->call(ContactsSeeder::class);
     }

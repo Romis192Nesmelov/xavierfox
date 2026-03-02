@@ -33,7 +33,6 @@ class ChapterIndexPage extends IndexPage
     {
         return [
             ID::make()->sortable('id'),
-            Image::make('Иконка','icon')->disk('public')->dir('images/icons'),
             Text::make('Название','name')->sortable('name'),
             Text::make('Описание','description'),
             Checkbox::make('Раздел активен', 'active')->updateOnPreview()->sortable('active')

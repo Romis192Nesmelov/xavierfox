@@ -13,10 +13,9 @@ return new class extends Migration
     {
         Schema::create('chapters', function (Blueprint $table) {
             $table->id();
-            $table->string('icon');
             $table->string('slug');
             $table->string('name');
-            $table->string('description');
+            $table->text('description');
             $table->tinyInteger('active');
             $table->timestamps();
         });

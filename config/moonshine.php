@@ -19,8 +19,8 @@ use MoonShine\Laravel\Pages\ProfilePage;
 
 return [
     'title' => env('MOONSHINE_TITLE', 'MoonShine'),
-    'logo' => '/storage/images/logo.png',
-    'logo_small' => '/storage/images/logo.png',
+    'logo' => '/storage/images/logo.svg',
+    'logo_small' => '/storage/images/logo.svg',
 
     'favicons' => [
         'apple-touch' => '/storage/images/favicons/apple-touch-icon.png',

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Article;
 use App\Models\Chapter;
 use Illuminate\View\View;
@@ -27,7 +28,7 @@ class ChapterController extends BaseController
             'chapter' => $chapter,
             'articles' => $articles,
             'articles_count' => $articlesCount,
-            'contacts' => $this->contacts
+            'contacts' => $this->contacts,
         ]);
     }
 }

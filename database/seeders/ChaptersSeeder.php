@@ -13,10 +13,10 @@ class ChaptersSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            ['icon' => 'routers.svg', 'slug' => 'routers', 'name' => 'Роутеры', 'description' => 'Настройка, оптимизация и обзоры сетевого оборудования', 'active' => 1],
-            ['icon' => 'linux.svg', 'slug' => 'linux', 'name' => 'Linux', 'description' => 'Команды, скрипты, администрирование и тюнинг системы', 'active' => 1],
-            ['icon' => 'windows.svg', 'slug' => 'windows', 'name' => 'Windows', 'description' => 'Оптимизация, безопасность и продвинутые настройки ОС', 'active' => 1],
-            ['icon' => 'soft.svg', 'slug' => 'soft', 'name' => 'Софт', 'description' => 'Обзоры программ, лайфхаки и автоматизация workflow', 'active' => 1]
+            ['name' => 'Сетевая инфраструктура', 'description' => 'Здесь собраны статьи о сетевом оборудовании, роутерах, настройках сетей и всём, что связано с соединением устройств между собой. От простых домашних сетей до сложных конфигураций — найдётся всё!', 'active' => 1],
+            ['name' => 'Linux', 'description' => 'Команды, скрипты, администрирование и тюнинг системы', 'active' => 1],
+            ['name' => 'Windows', 'description' => 'Оптимизация, безопасность и продвинутые настройки ОС', 'active' => 1],
+            ['name' => 'Софт', 'description' => 'Обзоры программ, лайфхаки и автоматизация workflow', 'active' => 1]
         ];
 
         foreach ($data as $item) {

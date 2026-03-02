@@ -4,20 +4,19 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources\Contacts\Pages;
 
-use MoonShine\Laravel\Pages\Crud\IndexPage;
+use App\MoonShine\Resources\Contacts\ContactsResource;
 use MoonShine\Contracts\UI\ComponentContract;
-use MoonShine\UI\Components\Table\TableBuilder;
 use MoonShine\Contracts\UI\FieldContract;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\Laravel\QueryTags\QueryTag;
+use MoonShine\Support\ListOf;
 use MoonShine\UI\Components\Metrics\Wrapped\Metric;
+use MoonShine\UI\Components\Table\TableBuilder;
 use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\ID;
-use App\MoonShine\Resources\Contacts\ContactsResource;
-use MoonShine\Support\ListOf;
 use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Text;
 use Throwable;
-
 
 /**
  * @extends IndexPage<ContactsResource>
@@ -33,9 +32,9 @@ class ContactsIndexPage extends IndexPage
     {
         return [
             ID::make(),
-            Image::make('Иконка','icon')->disk('public')->dir('images/icons'),
-            Text::make('Адрес','address'),
-            Checkbox::make('Раздел активен', 'active')->updateOnPreview()
+            Image::make('Иконка', 'icon')->disk('public')->dir('images/icons'),
+            Text::make('Адрес', 'address'),
+            Checkbox::make('Контакт активен', 'active')->updateOnPreview(),
         ];
     }
 
@@ -73,7 +72,6 @@ class ContactsIndexPage extends IndexPage
 
     /**
      * @param  TableBuilder  $component
-     *
      * @return TableBuilder
      */
     protected function modifyListComponent(ComponentContract $component): ComponentContract
@@ -83,34 +81,37 @@ class ContactsIndexPage extends IndexPage
 
     /**
      * @return list<ComponentContract>
+     *
      * @throws Throwable
      */
     protected function topLayer(): array
     {
         return [
-            ...parent::topLayer()
+            ...parent::topLayer(),
         ];
     }
 
     /**
      * @return list<ComponentContract>
+     *
      * @throws Throwable
      */
     protected function mainLayer(): array
     {
         return [
-            ...parent::mainLayer()
+            ...parent::mainLayer(),
         ];
     }
 
     /**
      * @return list<ComponentContract>
+     *
      * @throws Throwable
      */
     protected function bottomLayer(): array
     {
         return [
-            ...parent::bottomLayer()
+            ...parent::bottomLayer(),
         ];
     }
 }

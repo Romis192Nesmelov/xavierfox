@@ -11,19 +11,18 @@ class Chapter extends Model
     use Sluggable;
 
     protected $fillable = [
-        'icon',
         'slug',
         'name',
         'description',
-        'active'
+        'active',
     ];
 
     public function sluggable(): array
     {
         return [
             'slug' => [
-                'source' => 'name'
-            ]
+                'source' => 'name',
+            ],
         ];
     }
 

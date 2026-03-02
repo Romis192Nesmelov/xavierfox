@@ -1,20 +1,16 @@
 $(document).ready(function() {
-    $('a.img-preview').fancybox({
-        padding: 3
-    });
+    let articleContent = $('.article-content'),
+        tocList = $('.toc-list'),
+        sectionCounter = 1;
 
-    window.menuScrollFlag = false;
-    $('a[data-scroll], div[data-scroll]').click(function (e) {
-        e.preventDefault();
-        let self = $(this);
-        if (!window.menuScrollFlag) {
-            gotoScroll(self.attr('data-scroll'));
-        }
-    });
+    if (articleContent.length) {
+        articleContent.find('section').each(function() {
+            let sectionId = 'section' + sectionCounter;
+            $(this).attr('id',sectionId);
+            sectionCounter++;
+
+            let head = $(this).find('h2').html();
+            tocList.append($('<li></li>').append($('<a></a>').attr('href','#'+sectionId).html(head)));
+        });
+    }
 });
-
-function gotoScroll(scroll) {
-    $('html,body').animate({
-        scrollTop: $('div[data-scroll-destination="' + scroll + '"]').offset().top - 51
-    }, 1500, 'easeInOutQuint');
-}

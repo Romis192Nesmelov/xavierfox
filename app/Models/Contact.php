@@ -9,6 +9,6 @@ class Contact extends Model
     protected $fillable = [
         'icon',
         'address',
-        'active'
+        'active',
     ];
 }

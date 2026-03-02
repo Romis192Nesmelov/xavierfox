@@ -9,11 +9,9 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/js/jquery-3.4.1.min.js',
-                'resources/js/jquery.easing.1.3.js',
-                'resources/js/fancybox.min.js',
+                'resources/js/main.js',
                 'resources/js/article.js',
                 'resources/css/style.css',
-                'resources/css/category.css'
             ],
             // ssr: 'resources/js/ssr.ts',
             refresh: true,

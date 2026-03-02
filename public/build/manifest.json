@@ -1,0 +1,23 @@
+{
+  "resources/css/style.css": {
+    "file": "assets/style-Mqa1KsEp.css",
+    "src": "resources/css/style.css",
+    "isEntry": true,
+    "name": "style",
+    "names": [
+      "style.css"
+    ]
+  },
+  "resources/js/article.js": {
+    "file": "assets/article-jGnGWDtI.js",
+    "name": "article",
+    "src": "resources/js/article.js",
+    "isEntry": true
+  },
+  "resources/js/main.js": {
+    "file": "assets/main-BkOwOsxB.js",
+    "name": "main",
+    "src": "resources/js/main.js",
+    "isEntry": true
+  }
+}

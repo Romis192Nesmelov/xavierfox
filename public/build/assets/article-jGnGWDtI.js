@@ -1,0 +1,1 @@
+$(document).ready(function(){let t=$(".article-content"),i=$(".toc-list"),e=1;t.length&&t.find("section").each(function(){let n="section"+e;$(this).attr("id",n),e++;let c=$(this).find("h2").html();i.append($("<li></li>").append($("<a></a>").attr("href","#"+n).html(c)))})});

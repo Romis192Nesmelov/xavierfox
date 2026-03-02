@@ -37,7 +37,6 @@ class ArticleIndexPage extends IndexPage
             Image::make('Картинка', 'image')->disk('public')->dir('images/articles'),
             Text::make('Название', 'name')->sortable('name'),
             Text::make('Аннотация', 'annotation'),
-            Number::make('Рейтинг', 'rating')->sortable('rating')->sortable('rating'),
             BelongsTo::make('Раздел', 'chapter', fn ($item) => $item->name)->sortable('chapter_id'),
             Checkbox::make('Статья активна', 'active')->updateOnPreview()->sortable('active'),
         ];

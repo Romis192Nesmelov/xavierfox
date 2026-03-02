@@ -42,8 +42,7 @@ class ArticleFormPage extends FormPage
                     Column::make([
                         Image::make('Картинка', 'image')->disk('public')->dir('images/articles'),
                         BelongsTo::make('Раздел', 'chapter', fn ($item) => $item->name),
-                        Number::make('Рейтинг', 'rating'),
-                        Checkbox::make('Раздел активен', 'active')
+                        Checkbox::make('Статья активна', 'active')
                             ->nullable()
                             ->default(1),
                     ])->columnSpan(2),
@@ -83,7 +82,6 @@ class ArticleFormPage extends FormPage
             'slug' => ['nullable', 'min:3', 'max:191'],
             'annotation' => ['required', 'min:3', 'max:500'],
             'text' => ['required', 'min:5', 'max:66000'],
-            'rating' => ['required', 'integer', 'min:1', 'max:999'],
             'active' => ['nullable', 'max:1'],
             'chapter_id' => ['required', 'integer', 'exists:chapters,id'],
         ];

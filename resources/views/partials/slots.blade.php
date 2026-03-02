@@ -1,6 +1,5 @@
 <x-slot name="vite_files">
     @vite([
-        'resources/js/jquery-3.4.1.min.js',
         'resources/js/main.js',
         'resources/js/article.js',
         'resources/css/style.css',

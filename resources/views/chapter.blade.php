@@ -20,7 +20,7 @@
                         <article class="article-card is-visible" style="opacity: 0; transform: translateY(20px); transition: opacity 0.4s, transform 0.4s;">
                             <a href="{{ route('article', ['slug' => $article->chapter->slug, 'subSlug' => $article->slug]) }}" class="article-card-link">
                                 <div class="article-card-preview">
-                                    <img src="{{ asset('storage/images/articles/'.$article->image) }}" />
+                                    <img src="{{ asset('storage/'.$article->image) }}" />
                                 </div>
                                 <div class="article-card-content">
                                     <h3 class="article-card-title">{{ $article->name }}</h3>

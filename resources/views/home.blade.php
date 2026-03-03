@@ -16,7 +16,7 @@
             <div class="container">
                 <div class="creator-content">
                     <div class="creator-avatar" aria-hidden="true">
-                        <img src="{{ asset('storage/images/content/'.$content[1]->image) }}" />
+                        <img src="{{ asset('storage/'.$content[1]->image) }}" />
                     </div>
                     <div class="creator-info">
                         <h2 id="creator-title" class="creator-name">{{ $content[1]->head }}</h2>
@@ -25,7 +25,7 @@
                         <div class="social-links">
                             @foreach($contacts as $contact)
                                 <a href="{{ $contact->address }}" class="social-link" target="_blank" rel="noopener noreferrer">
-                                    <img src="{{ asset('storage/images/icons/'.$contact->icon) }}" />
+                                    <img src="{{ asset('storage/'.$contact->icon) }}" />
                                 </a>
                             @endforeach
                         </div>

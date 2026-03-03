@@ -9,7 +9,7 @@
                         </span>
                     <h1 id="article-title" class="article-title">Настройка роутера OpenWRT</h1>
                     <div class="article-preview">
-                        <img src="{{ asset('storage/images/articles/'.$article->image) }}" alt="{{ $article->name }}" />
+                        <img src="{{ asset('storage/'.$article->image) }}" alt="{{ $article->name }}" />
                     </div>
                 </div>
             </div>

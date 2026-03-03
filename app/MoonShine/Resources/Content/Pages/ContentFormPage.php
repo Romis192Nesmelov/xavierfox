@@ -6,6 +6,7 @@ namespace App\MoonShine\Resources\Content\Pages;
 
 use App\MoonShine\Resources\Content\ContentResource;
 use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
+use MoonShine\Contracts\UI\ActionButtonContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\FormBuilderContract;
@@ -67,7 +68,7 @@ class ContentFormPage extends FormPage
 
     protected function buttons(): ListOf
     {
-        return parent::buttons();
+        return new ListOf(ActionButtonContract::class, []);
     }
 
     protected function formButtons(): ListOf

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\MoonShine\Resources\Contacts\Pages;
 
 use App\MoonShine\Resources\Contacts\ContactsResource;
+use MoonShine\Contracts\UI\ActionButtonContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
@@ -43,7 +44,16 @@ class ContactsIndexPage extends IndexPage
      */
     protected function buttons(): ListOf
     {
-        return parent::buttons();
+        return new ListOf(ActionButtonContract::class, [
+            $this->modifyEditButton(
+                $this->getResource()->getEditButton(
+                    isAsync: $this->isAsync(),
+                )
+            ),
+            $this->modifyDeleteButton(
+                $this->getResource()->getDeleteButton()
+            ),
+        ]);
     }
 
     /**

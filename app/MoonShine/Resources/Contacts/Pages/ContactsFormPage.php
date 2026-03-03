@@ -6,6 +6,7 @@ namespace App\MoonShine\Resources\Contacts\Pages;
 
 use App\MoonShine\Resources\Contacts\ContactsResource;
 use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
+use MoonShine\Contracts\UI\ActionButtonContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\FormBuilderContract;
@@ -49,7 +50,11 @@ class ContactsFormPage extends FormPage
 
     protected function buttons(): ListOf
     {
-        return parent::buttons();
+        return new ListOf(ActionButtonContract::class, [
+            $this->modifyDeleteButton(
+                $this->getResource()->getDeleteButton()
+            ),
+        ]);
     }
 
     protected function formButtons(): ListOf

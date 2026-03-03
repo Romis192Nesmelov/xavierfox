@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\MoonShine\Resources\Article\Pages;
 
 use App\MoonShine\Resources\Article\ArticleResource;
+use MoonShine\Contracts\UI\ActionButtonContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
@@ -16,7 +17,6 @@ use MoonShine\UI\Components\Table\TableBuilder;
 use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Image;
-use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Text;
 use Throwable;
 
@@ -47,7 +47,16 @@ class ArticleIndexPage extends IndexPage
      */
     protected function buttons(): ListOf
     {
-        return parent::buttons();
+        return new ListOf(ActionButtonContract::class, [
+            $this->modifyEditButton(
+                $this->getResource()->getEditButton(
+                    isAsync: $this->isAsync(),
+                )
+            ),
+            $this->modifyDeleteButton(
+                $this->getResource()->getDeleteButton()
+            ),
+        ]);
     }
 
     /**

@@ -14,7 +14,7 @@
     <meta property="og:description" content="IT-база знаний от студента для студента. Простота и юмор в каждой статье.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ env('APP_URL') }}">
-    <meta property="og:image" content="{{ asset('storage/images/logo.svg') }}">
+    <meta property="og:image" content="{{ asset('storage/images/logo.png') }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Xavier Fox Communications">
     <meta name="twitter:description" content="IT-база знаний от студента для студента">

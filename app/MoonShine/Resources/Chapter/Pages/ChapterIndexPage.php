@@ -4,20 +4,19 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources\Chapter\Pages;
 
-use MoonShine\Laravel\Pages\Crud\IndexPage;
-use MoonShine\Contracts\UI\ComponentContract;
-use MoonShine\UI\Components\Table\TableBuilder;
-use MoonShine\Contracts\UI\FieldContract;
-use MoonShine\Laravel\QueryTags\QueryTag;
-use MoonShine\UI\Components\Metrics\Wrapped\Metric;
-use MoonShine\UI\Fields\ID;
 use App\MoonShine\Resources\Chapter\ChapterResource;
+use MoonShine\Contracts\UI\ActionButtonContract;
+use MoonShine\Contracts\UI\ComponentContract;
+use MoonShine\Contracts\UI\FieldContract;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
+use MoonShine\Laravel\QueryTags\QueryTag;
 use MoonShine\Support\ListOf;
-use MoonShine\UI\Fields\Image;
-use MoonShine\UI\Fields\Text;
+use MoonShine\UI\Components\Metrics\Wrapped\Metric;
+use MoonShine\UI\Components\Table\TableBuilder;
 use MoonShine\UI\Fields\Checkbox;
+use MoonShine\UI\Fields\ID;
+use MoonShine\UI\Fields\Text;
 use Throwable;
-
 
 /**
  * @extends IndexPage<ChapterResource>
@@ -33,9 +32,9 @@ class ChapterIndexPage extends IndexPage
     {
         return [
             ID::make()->sortable('id'),
-            Text::make('Название','name')->sortable('name'),
-            Text::make('Описание','description'),
-            Checkbox::make('Раздел активен', 'active')->updateOnPreview()->sortable('active')
+            Text::make('Название', 'name')->sortable('name'),
+            Text::make('Описание', 'description'),
+            Checkbox::make('Раздел активен', 'active')->updateOnPreview()->sortable('active'),
         ];
     }
 
@@ -44,7 +43,16 @@ class ChapterIndexPage extends IndexPage
      */
     protected function buttons(): ListOf
     {
-        return parent::buttons();
+        return new ListOf(ActionButtonContract::class, [
+            $this->modifyEditButton(
+                $this->getResource()->getEditButton(
+                    isAsync: $this->isAsync(),
+                )
+            ),
+            $this->modifyDeleteButton(
+                $this->getResource()->getDeleteButton()
+            ),
+        ]);
     }
 
     /**
@@ -73,7 +81,6 @@ class ChapterIndexPage extends IndexPage
 
     /**
      * @param  TableBuilder  $component
-     *
      * @return TableBuilder
      */
     protected function modifyListComponent(ComponentContract $component): ComponentContract
@@ -83,34 +90,37 @@ class ChapterIndexPage extends IndexPage
 
     /**
      * @return list<ComponentContract>
+     *
      * @throws Throwable
      */
     protected function topLayer(): array
     {
         return [
-            ...parent::topLayer()
+            ...parent::topLayer(),
         ];
     }
 
     /**
      * @return list<ComponentContract>
+     *
      * @throws Throwable
      */
     protected function mainLayer(): array
     {
         return [
-            ...parent::mainLayer()
+            ...parent::mainLayer(),
         ];
     }
 
     /**
      * @return list<ComponentContract>
+     *
      * @throws Throwable
      */
     protected function bottomLayer(): array
     {
         return [
-            ...parent::bottomLayer()
+            ...parent::bottomLayer(),
         ];
     }
 }

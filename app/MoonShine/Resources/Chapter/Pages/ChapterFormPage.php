@@ -7,6 +7,7 @@ namespace App\MoonShine\Resources\Chapter\Pages;
 use App\MoonShine\Resources\Article\ArticleResource;
 use App\MoonShine\Resources\Chapter\ChapterResource;
 use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
+use MoonShine\Contracts\UI\ActionButtonContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\FormBuilderContract;
@@ -20,7 +21,6 @@ use MoonShine\UI\Components\Layout\Divider;
 use MoonShine\UI\Components\Layout\Grid;
 use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\ID;
-use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Text;
 use MoonShine\UI\Fields\Textarea;
 use Throwable;
@@ -62,7 +62,11 @@ class ChapterFormPage extends FormPage
 
     protected function buttons(): ListOf
     {
-        return parent::buttons();
+        return new ListOf(ActionButtonContract::class, [
+            $this->modifyDeleteButton(
+                $this->getResource()->getDeleteButton()
+            ),
+        ]);
     }
 
     protected function formButtons(): ListOf

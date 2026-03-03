@@ -11,7 +11,7 @@
             <div class="header-content">
                 <a href="{{ route('home') }}" class="logo" aria-label="Xavier Fox Communications - главная страница">
                     <div class="logo-icon">
-                        <img src="{{ asset('storage/images/logo.svg') }}" />
+                        <img src="{{ asset('storage/images/logo.png') }}" />
                     </div>
                 </a>
                 <nav class="main-nav" aria-label="Основная навигация">
@@ -45,15 +45,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <svg viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <text x="10" y="55" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="currentColor">Xavier Fox</text>
-                        <text x="185" y="55" font-family="Arial, sans-serif" font-size="24" fill="#e63946">Communications</text>
-                        <circle cx="260" cy="25" r="8" fill="#e63946"></circle>
-                    </svg>
+                    <img src="{{ asset('storage/images/logo_footer.png') }}" />
                 </div>
                 <div class="footer-contact">
                     @foreach($contacts as $contact)
-                        <a href="{{ $contact->address }}" class="footer-email">{{ str_replace(['mailto:','https://t.me/','https://wa.me/'],'',$contact->address) }}</a>
+                        <a href="{{ $contact->address }}" class="footer-email">{{ str_replace(['mailto:','https://t.me/','https://wa.me/'],'',$contact->address) }}</a><br>
                     @endforeach
                 </div>
                 <div class="footer-copyright">

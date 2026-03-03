@@ -6,6 +6,7 @@ namespace App\MoonShine\Resources\Article\Pages;
 
 use App\MoonShine\Resources\Article\ArticleResource;
 use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
+use MoonShine\Contracts\UI\ActionButtonContract;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\UI\FormBuilderContract;
@@ -21,7 +22,6 @@ use MoonShine\UI\Components\Layout\Grid;
 use MoonShine\UI\Fields\Checkbox;
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Fields\Image;
-use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Text;
 use Throwable;
 
@@ -66,7 +66,11 @@ class ArticleFormPage extends FormPage
 
     protected function buttons(): ListOf
     {
-        return parent::buttons();
+        return new ListOf(ActionButtonContract::class, [
+            $this->modifyDeleteButton(
+                $this->getResource()->getDeleteButton()
+            ),
+        ]);
     }
 
     protected function formButtons(): ListOf

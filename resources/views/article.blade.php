@@ -7,7 +7,7 @@
                         <span class="article-category">
                             <a href="{{ route('chapter', ['slug' => $article->chapter->slug]) }}">{{ $article->chapter->name }}</a>
                         </span>
-                    <h1 id="article-title" class="article-title">Настройка роутера OpenWRT</h1>
+                    <h1 id="article-title" class="article-title">{{ $article->name }}</h1>
                     <div class="article-preview">
                         <img src="{{ asset('storage/'.$article->image) }}" alt="{{ $article->name }}" />
                     </div>

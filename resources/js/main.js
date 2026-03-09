@@ -200,15 +200,14 @@ function initCodeCopy() {
         });
 
         pre.style.position = 'relative';
-        pre.appendChild(button);
+        pre.prepend(button);
     });
 
     // Add styles for copy button
     const style = document.createElement('style');
     style.textContent = `
         .copy-code-btn {
-            position: absolute;
-            top: 10px;
+            position: fixed;
             right: 10px;
             padding: 6px 12px;
             background-color: var(--color-red);

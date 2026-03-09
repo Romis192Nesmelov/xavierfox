@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded",function(){a(),d(),l(),u()});functi
             opacity: 1 !important;
             transform: translateY(0) !important;
         }
-    `,document.head.appendChild(o)}function p(){document.querySelectorAll("pre code").forEach(function(r){const o=r.parentElement,e=document.createElement("button");e.className="copy-code-btn",e.textContent="Копировать",e.setAttribute("aria-label","Копировать код в буфер обмена"),e.addEventListener("click",function(){const i=r.textContent;navigator.clipboard.writeText(i).then(function(){e.textContent="Скопировано!",e.classList.add("copied"),setTimeout(function(){e.textContent="Копировать",e.classList.remove("copied")},2e3)}).catch(function(){e.textContent="Ошибка",setTimeout(function(){e.textContent="Копировать"},2e3)})}),o.style.position="relative",o.appendChild(e)});const t=document.createElement("style");t.textContent=`
+    `,document.head.appendChild(o)}function p(){document.querySelectorAll("pre code").forEach(function(r){const o=r.parentElement,e=document.createElement("button");e.className="copy-code-btn",e.textContent="Копировать",e.setAttribute("aria-label","Копировать код в буфер обмена"),e.addEventListener("click",function(){const i=r.textContent;navigator.clipboard.writeText(i).then(function(){e.textContent="Скопировано!",e.classList.add("copied"),setTimeout(function(){e.textContent="Копировать",e.classList.remove("copied")},2e3)}).catch(function(){e.textContent="Ошибка",setTimeout(function(){e.textContent="Копировать"},2e3)})}),o.style.position="relative",o.prepend(e)});const t=document.createElement("style");t.textContent=`
         .copy-code-btn {
-            position: absolute;
-            top: 10px;
+            position: fixed;
+            margin-top: -10px;
             right: 10px;
             padding: 6px 12px;
             background-color: var(--color-red);

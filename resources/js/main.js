@@ -208,6 +208,7 @@ function initCodeCopy() {
     style.textContent = `
         .copy-code-btn {
             position: fixed;
+            margin-top: -10px;
             right: 10px;
             padding: 6px 12px;
             background-color: var(--color-red);

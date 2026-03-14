@@ -8,10 +8,12 @@ use App\Models\Article;
 use App\Models\Chapter;
 use App\Models\Contact;
 use App\Models\Content;
+use App\Models\Image;
 use App\MoonShine\Resources\Article\ArticleResource;
 use App\MoonShine\Resources\Chapter\ChapterResource;
 use App\MoonShine\Resources\Contacts\ContactsResource;
 use App\MoonShine\Resources\Content\ContentResource;
+use App\MoonShine\Resources\Image\ImageResource;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\Laravel\Pages\Page;
 use MoonShine\UI\Components\Layout\Column;
@@ -64,6 +66,11 @@ class Dashboard extends Page
                     ValueMetric::make(fn () => (string) Link::make(app(ContactsResource::class)->getIndexPageUrl(), 'Контакты'))
                         ->value(fn () => Contact::count())
                         ->icon('chat-bubble-left-right'),
+                ])->columnSpan(2),
+                Column::make([
+                    ValueMetric::make(fn () => (string) Link::make(app(ImageResource::class)->getIndexPageUrl(), 'Галерея'))
+                        ->value(fn () => Image::count())
+                        ->icon('photo'),
                 ])->columnSpan(2),
             ]),
         ];

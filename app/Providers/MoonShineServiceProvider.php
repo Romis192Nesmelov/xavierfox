@@ -13,6 +13,7 @@ use App\MoonShine\Resources\MoonShineUserRole\MoonShineUserRoleResource;
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Laravel\DependencyInjection\MoonShineConfigurator;
+use App\MoonShine\Resources\Image\ImageResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -29,6 +30,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 ArticleResource::class,
                 ContentResource::class,
                 ContactsResource::class,
+                ImageResource::class,
             ])
             ->pages([
                 ...$core->getConfig()->getPages(),

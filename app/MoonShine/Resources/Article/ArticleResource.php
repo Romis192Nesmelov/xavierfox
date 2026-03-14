@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources\Article;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Models\Article;
-use App\MoonShine\Resources\Article\Pages\ArticleIndexPage;
-use App\MoonShine\Resources\Article\Pages\ArticleFormPage;
 use App\MoonShine\Resources\Article\Pages\ArticleDetailPage;
-
-use MoonShine\Laravel\Resources\ModelResource;
+use App\MoonShine\Resources\Article\Pages\ArticleFormPage;
+use App\MoonShine\Resources\Article\Pages\ArticleIndexPage;
 use MoonShine\Contracts\Core\PageContract;
+use MoonShine\Laravel\Resources\ModelResource;
 
 /**
  * @extends ModelResource<Article, ArticleIndexPage, ArticleFormPage, ArticleDetailPage>
@@ -34,12 +32,12 @@ class ArticleResource extends ModelResource
         return [
             ArticleIndexPage::class,
             ArticleFormPage::class,
-            ArticleDetailPage::class,
+//            ArticleDetailPage::class,
         ];
     }
 
     public function search(): array
     {
-        return ['name','annotation','rating'];
+        return ['name', 'annotation'];
     }
 }

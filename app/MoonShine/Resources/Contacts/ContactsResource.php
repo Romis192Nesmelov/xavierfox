@@ -35,7 +35,12 @@ class ContactsResource extends ModelResource
         return [
             ContactsIndexPage::class,
             ContactsFormPage::class,
-            ContactsDetailPage::class,
+//            ContactsDetailPage::class,
         ];
+    }
+
+    public function search(): array
+    {
+        return ['address', 'active'];
     }
 }

@@ -38,4 +38,9 @@ class ContentResource extends ModelResource
             ContentDetailPage::class,
         ];
     }
+
+    public function search(): array
+    {
+        return ['head', 'sub_head', 'text'];
+    }
 }

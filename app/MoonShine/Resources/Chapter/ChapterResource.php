@@ -35,7 +35,7 @@ class ChapterResource extends ModelResource
         return [
             ChapterIndexPage::class,
             ChapterFormPage::class,
-            ChapterDetailPage::class,
+//            ChapterDetailPage::class,
         ];
     }
 
